@@ -11,3 +11,16 @@ D:\Document\repos\operum-scientia\projects\VS Community projects\AcademiaManagem
 D:\Document\repos\operum-scientia\projects\VS Community projects\AcademiaManagement\AcademiaManagement\obj\Debug\netcoreapp3.1\AcademiaManagement.dll
 D:\Document\repos\operum-scientia\projects\VS Community projects\AcademiaManagement\AcademiaManagement\obj\Debug\netcoreapp3.1\AcademiaManagement.pdb
 D:\Document\repos\operum-scientia\projects\VS Community projects\AcademiaManagement\AcademiaManagement\obj\Debug\netcoreapp3.1\AcademiaManagement.genruntimeconfig.cache
+D:\Document\repos\operum-scientia\projects\VS Community projects\henry-builder-implementation\AcademiaManagement\AcademiaManagement\bin\Debug\netcoreapp3.1\AcademiaManagement.exe
+D:\Document\repos\operum-scientia\projects\VS Community projects\henry-builder-implementation\AcademiaManagement\AcademiaManagement\bin\Debug\netcoreapp3.1\AcademiaManagement.deps.json
+D:\Document\repos\operum-scientia\projects\VS Community projects\henry-builder-implementation\AcademiaManagement\AcademiaManagement\bin\Debug\netcoreapp3.1\AcademiaManagement.runtimeconfig.json
+D:\Document\repos\operum-scientia\projects\VS Community projects\henry-builder-implementation\AcademiaManagement\AcademiaManagement\bin\Debug\netcoreapp3.1\AcademiaManagement.runtimeconfig.dev.json
+D:\Document\repos\operum-scientia\projects\VS Community projects\henry-builder-implementation\AcademiaManagement\AcademiaManagement\bin\Debug\netcoreapp3.1\AcademiaManagement.dll
+D:\Document\repos\operum-scientia\projects\VS Community projects\henry-builder-implementation\AcademiaManagement\AcademiaManagement\bin\Debug\netcoreapp3.1\AcademiaManagement.pdb
+D:\Document\repos\operum-scientia\projects\VS Community projects\henry-builder-implementation\AcademiaManagement\AcademiaManagement\obj\Debug\netcoreapp3.1\AcademiaManagement.csprojAssemblyReference.cache
+D:\Document\repos\operum-scientia\projects\VS Community projects\henry-builder-implementation\AcademiaManagement\AcademiaManagement\obj\Debug\netcoreapp3.1\AcademiaManagement.AssemblyInfoInputs.cache
+D:\Document\repos\operum-scientia\projects\VS Community projects\henry-builder-implementation\AcademiaManagement\AcademiaManagement\obj\Debug\netcoreapp3.1\AcademiaManagement.AssemblyInfo.cs
+D:\Document\repos\operum-scientia\projects\VS Community projects\henry-builder-implementation\AcademiaManagement\AcademiaManagement\obj\Debug\netcoreapp3.1\AcademiaManagement.csproj.CoreCompileInputs.cache
+D:\Document\repos\operum-scientia\projects\VS Community projects\henry-builder-implementation\AcademiaManagement\AcademiaManagement\obj\Debug\netcoreapp3.1\AcademiaManagement.dll
+D:\Document\repos\operum-scientia\projects\VS Community projects\henry-builder-implementation\AcademiaManagement\AcademiaManagement\obj\Debug\netcoreapp3.1\AcademiaManagement.pdb
+D:\Document\repos\operum-scientia\projects\VS Community projects\henry-builder-implementation\AcademiaManagement\AcademiaManagement\obj\Debug\netcoreapp3.1\AcademiaManagement.genruntimeconfig.cache

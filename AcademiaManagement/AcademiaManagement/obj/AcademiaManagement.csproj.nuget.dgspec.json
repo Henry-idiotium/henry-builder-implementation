@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Document\\repos\\operum-scientia\\projects\\VS Community projects\\AcademiaManagement\\AcademiaManagement\\AcademiaManagement.csproj": {}
+    "D:\\Document\\repos\\operum-scientia\\projects\\VS Community projects\\henry-builder-implementation\\AcademiaManagement\\AcademiaManagement\\AcademiaManagement.csproj": {}
   },
   "projects": {
-    "D:\\Document\\repos\\operum-scientia\\projects\\VS Community projects\\AcademiaManagement\\AcademiaManagement\\AcademiaManagement.csproj": {
+    "D:\\Document\\repos\\operum-scientia\\projects\\VS Community projects\\henry-builder-implementation\\AcademiaManagement\\AcademiaManagement\\AcademiaManagement.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Document\\repos\\operum-scientia\\projects\\VS Community projects\\AcademiaManagement\\AcademiaManagement\\AcademiaManagement.csproj",
+        "projectUniqueName": "D:\\Document\\repos\\operum-scientia\\projects\\VS Community projects\\henry-builder-implementation\\AcademiaManagement\\AcademiaManagement\\AcademiaManagement.csproj",
         "projectName": "AcademiaManagement",
-        "projectPath": "D:\\Document\\repos\\operum-scientia\\projects\\VS Community projects\\AcademiaManagement\\AcademiaManagement\\AcademiaManagement.csproj",
+        "projectPath": "D:\\Document\\repos\\operum-scientia\\projects\\VS Community projects\\henry-builder-implementation\\AcademiaManagement\\AcademiaManagement\\AcademiaManagement.csproj",
         "packagesPath": "C:\\Users\\Henry\\.nuget\\packages\\",
-        "outputPath": "D:\\Document\\repos\\operum-scientia\\projects\\VS Community projects\\AcademiaManagement\\AcademiaManagement\\obj\\",
+        "outputPath": "D:\\Document\\repos\\operum-scientia\\projects\\VS Community projects\\henry-builder-implementation\\AcademiaManagement\\AcademiaManagement\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Henry\\AppData\\Roaming\\NuGet\\NuGet.Config",

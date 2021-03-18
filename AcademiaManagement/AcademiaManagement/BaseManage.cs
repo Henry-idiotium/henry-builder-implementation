@@ -273,7 +273,7 @@
         }
 
         /// <summary>
-        /// Display all operation options.
+        /// Display all operation options and prompt to choose one.
         /// </summary>
         public void OptionDisplay(AcademicPosition position)
         {
