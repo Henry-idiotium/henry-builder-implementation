@@ -32,7 +32,10 @@
                 "2.\tManage Lecturers\n" +
                 "3.\tExit\n" +
                 "===================================\n");
-            int choice = int.Parse(Console.ReadLine());
+            var choice = Console.ReadLine();
+
+            // Validate choice
+            if (Validation.ChoiceIsValid(choice, 1, 3)) MainMenu();
 
             // Depend on the choice, the corresponding management option will be called;
             // otherwise, the choice for exit will stop the program.
@@ -42,7 +45,7 @@
                 { x => x == 2, () => LecturerManage.GetStudentManage(_academias) },
                 { x => x == 3, () => Environment.Exit(0)                         }
             };
-            cases.First(c => c.Key(choice)).Value();
+            cases.First(c => c.Key(int.Parse(choice))).Value();
         }
     }
 }

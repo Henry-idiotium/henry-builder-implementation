@@ -15,22 +15,22 @@
         /// the fields needed to be provided to fabricate an acdemia object. Then add it
         /// into the current academia list.
         /// </summary>
-        public void Add(AcademicPosition position)
+        private void Add(AcademicPosition position)
         {
             Console.Clear();
 
             Console.WriteLine("Please input the following fields:\n" +
-                              "Note: Press enter to not update that field\n" +
                               "=============================\n");
 
             // Input for each corresponding fields.
+            var divisionType = position == AcademicPosition.Student ? "CLASS" : "DEPARTMENT";
             string[] fieldNames = {
                 "ID: ",
                 "NAME: ",
                 "DATE OF BIRTH: ",
                 "EMAIL: ",
                 "ADDRESS: ",
-                "CLASS: "};
+                $"{divisionType}: "};
             var fieldsToAdd = new List<string>();
             for (int i = 0; i < 6; i++)
             {
@@ -82,9 +82,7 @@
 
             // Display successful Message.
             Console.WriteLine("\n=============================\n" +
-                              "Add {0} ID-{1} was successfully!",
-                              position,
-                              fieldNames[0]);
+                              $"Add {position} with ID - {fieldsToAdd[0]} was successfully!");
             Console.ReadLine();
         }
 
@@ -93,7 +91,7 @@
         /// will display and remove the correspond academia entity ID after inform and
         /// request to provide the ID keyword.
         /// </summary>
-        public void Delete(AcademicPosition position)
+        private void Delete(AcademicPosition position)
         {
             Console.Clear();
 
@@ -115,8 +113,7 @@
             Console.WriteLine(itemToDelete.Display() +
                               "\n\n=============================\n" +
                               "Delete successfully!",
-                              position,
-                              itemToDelete.AcademiaID);
+                              $"Delete {position} with ID - {itemToDelete.AcademiaID} was successfully!");
             Console.ReadLine();
         }
 
@@ -124,7 +121,7 @@
         /// Take an input argument of AcademicPosition enumerable data type, then take
         /// new data to reassign to the updating academia entity.
         /// </summary>
-        public void Update(AcademicPosition position)
+        private void Update(AcademicPosition position)
         {
             Console.Clear();
 
@@ -135,7 +132,7 @@
             Console.Write("Update {0} with ID: ", position);
             var inputField = Console.ReadLine();
             var itemToUpdate = AcademiaList.SingleOrDefault(a => a.AcademiaID == inputField
-                                                            && a.AcademiaPosition == position);
+                                                                 && a.AcademiaPosition == position);
 
             // Check if the input is null. If so then return back to menu, otherwise,
             // proceed to display it.
@@ -150,14 +147,14 @@
                               "Fields:\n");
 
             // Input for each corresponding fields.
+            var divisionType = position == AcademicPosition.Student ? "CLASS" : "DEPARTMENT";
             string[] fieldNames = {
                 "ID: ",
                 "NAME: ",
                 "DATE OF BIRTH: ",
                 "EMAIL: ",
                 "ADDRESS: ",
-                "CLASS: "
-            };
+                $"{divisionType}: "};
             var fieldsToUpdate = new List<string>();
             for (int i = 0; i < 6; i++)
             {
@@ -191,10 +188,9 @@
                     mapFields.First(x => x.Key(i)).Value();
 
             // Display successfull message.
-            Console.WriteLine("\n=============================\n" +
-                              "Update {0} with ID-{1} successfully!",
-                              position,
-                              itemToUpdate.AcademiaID);
+            Console.WriteLine(
+                "\n=============================\n" +
+                $"Update {position} with with ID - {itemToUpdate.AcademiaID} successfully!");
             Console.ReadLine();
         }
 
@@ -203,7 +199,7 @@
         /// full information of a specific academia entity after request and take in the
         /// academia name partially or fully.
         /// </summary>
-        public void Search(AcademicPosition position)
+        private void Search(AcademicPosition position)
         {
             Console.Clear();
 
@@ -212,10 +208,9 @@
 
             // Input Academia name to search.
             Console.Write("Enter the {0} name: ", position);
-            var searchValue = Console.ReadLine();
 
             // Get a list of results.
-            var resultList = AcademiaList.Where(a => a.AcademiaName.Contains(searchValue)
+            var resultList = AcademiaList.Where(a => a.AcademiaName.Contains(Console.ReadLine())
                                                      && a.AcademiaPosition == position)
                                          .ToArray();
 
@@ -236,9 +231,9 @@
                 for (int i = 0; i < resultList.Length; i++)
                 {
                     Console.WriteLine(
-                        "{0}. ID: {1} | NAME: {2}\n", i,
-                        resultList[i].AcademiaID,
-                        resultList[i].AcademiaName);
+                        $"{i}. " +
+                        $"ID: {resultList[i].AcademiaID} " +
+                        $"| NAME: {resultList[i].AcademiaName}\n");
                 }
             }
 
@@ -246,18 +241,11 @@
             // display an error. Otherwise, it display full information of the chose
             // academia entity.
             Console.Write("=============================\n" +
-                          "Please choose one by it index:");
+                          "Please choose one by it index: ");
             var choice = Console.ReadLine();
-            if (!choice.All(char.IsDigit)
-                || choice is null
-                || choice.All(char.IsWhiteSpace))
-            {
-                Console.Clear();
-                Console.WriteLine("Invalid choice!");
-                Console.ReadLine();
-                return;
-            }
-            Console.WriteLine("\nThe {0} full information: ", position);
+
+            if (Validation.ChoiceIsValid(choice, 1, resultList.Length)) return;
+            Console.WriteLine($"\nThe {position} full information: ");
             Console.WriteLine(resultList[int.Parse(choice)].Display());
 
             Console.ReadLine();
@@ -267,7 +255,7 @@
         /// Take an input argument of AcademicPosition enumerable data type; then display
         /// all academia entities of the corresponding inputted AcademicPosition.
         /// </summary>
-        public void ViewAll(AcademicPosition position)
+        private void ViewAll(AcademicPosition position)
         {
             Console.Clear();
 
@@ -278,9 +266,8 @@
             // position.
             var resultList = AcademiaList.Where(a => a.AcademiaPosition == position)
                                          .ToList();
-            Console.WriteLine("LIST OF {0}S :\n" +
-                              "======================",
-                              position.ToString());
+            Console.WriteLine($"LIST OF {position.ToString()}S :\n" +
+                              "======================");
             foreach (var a in resultList) Console.WriteLine(a.Display());
             Console.ReadLine();
         }
@@ -300,6 +287,25 @@
                               "6.\tBack to main menu\n" +
                               "======================================\n",
                               position);
+
+            var initialChoice = Console.ReadLine();
+
+            // Validate choice
+            if (Validation.ChoiceIsValid(initialChoice, 1, 6))
+                Client.GetClient(AcademiaList).MainMenu();
+
+            var choice = int.Parse(initialChoice);
+
+            var cases = new Dictionary<Func<int, bool>, Action>
+                {
+                    { x => x == 1, () => ViewAll(position)                         },
+                    { x => x == 2, () => Search(position)                          },
+                    { x => x == 3, () => Add(position)                             },
+                    { x => x == 4, () => Delete(position)                          },
+                    { x => x == 5, () => Update(position)                          },
+                    { x => x == 6, () => Client.GetClient(AcademiaList).MainMenu() }
+                };
+            cases.First(c => c.Key(choice)).Value();
         }
     }
 
@@ -313,24 +319,8 @@
         {
             AcademiaList = academias;
             var position = AcademicPosition.Lecturer;
-            int choice;
 
-            do
-            {
-                OptionDisplay(position);
-                choice = int.Parse(Console.ReadLine());
-
-                var cases = new Dictionary<Func<int, bool>, Action>
-                {
-                    { x => x == 1, () => ViewAll(position)                         },
-                    { x => x == 2, () => Search(position)                          },
-                    { x => x == 3, () => Add(position)                             },
-                    { x => x == 4, () => Delete(position)                          },
-                    { x => x == 5, () => Update(position)                          },
-                    { x => x == 6, () => Client.GetClient(AcademiaList).MainMenu() }
-                };
-                cases.First(c => c.Key(choice)).Value();
-            } while (choice >= 1 && choice <= 6);
+            while (true) OptionDisplay(position);
         }
 
         /// <summary>
@@ -350,24 +340,8 @@
         {
             AcademiaList = academias;
             var position = AcademicPosition.Student;
-            int choice;
 
-            do
-            {
-                OptionDisplay(position);
-                choice = int.Parse(Console.ReadLine());
-
-                var cases = new Dictionary<Func<int, bool>, Action>
-                {
-                    { x => x == 1, () => ViewAll(position)                         },
-                    { x => x == 2, () => Search(position)                          },
-                    { x => x == 3, () => Add(position)                             },
-                    { x => x == 4, () => Delete(position)                          },
-                    { x => x == 5, () => Update(position)                          },
-                    { x => x == 6, () => Client.GetClient(AcademiaList).MainMenu() }
-                };
-                cases.First(c => c.Key(choice)).Value();
-            } while (choice >= 1 && choice <= 6);
+            while (true) OptionDisplay(position);
         }
 
         /// <summary>
@@ -375,82 +349,5 @@
         /// </summary>
         public static StudentManage GetStudentManage(List<Academia> academias)
             => new StudentManage(academias);
-    }
-
-    internal class Validation
-    {
-        /// <summary>
-        /// Prevents a default instance of the Validation class from being created.
-        /// </summary>
-        private Validation() { }
-
-        /// <summary>
-        /// ListIsNull check if the inputted list is null; if so then it display an error
-        /// message and return a true value.
-        /// </summary>
-        public static bool ListIsNull(List<Academia> list, AcademicPosition position)
-        {
-            var foo = !list.Where(a => a.AcademiaPosition == position).Any();
-            if (foo)
-            {
-                Console.WriteLine("\b=============================\n" +
-                                  "There are 0 {0}s in the current list!\n" +
-                                  "Please add more!",
-                                  position);
-                Console.ReadLine();
-            }
-            return foo;
-        }
-
-        /// <summary>
-        /// FieldIsNullOrWhiteSpace check if the inputted field is null or contains only
-        /// whitespace; if so then it display an error message and return true value.
-        /// </summary>
-        public static bool FieldIsNullOrWhiteSpace(string inputField, string fieldName)
-        {
-            var foo = string.IsNullOrWhiteSpace(inputField);
-            if (foo)
-            {
-                Console.WriteLine("\n=============================\n" +
-                                  "\nThe {0} is required",
-                                  fieldName);
-                Console.ReadLine();
-            }
-            return foo;
-        }
-
-        /// <summary>
-        /// IsDuplicate check if the matchedList is null; if not so then it display
-        /// an error message and return true value.
-        /// </summary>
-        public static bool IsDuplicate(IEnumerable<Academia> matchedList, string inputField)
-        {
-            var foo = matchedList.Any();
-            if (foo)
-            {
-                Console.WriteLine("\n=============================\n" +
-                                  "This {0} is already existed!",
-                                  inputField);
-                Console.ReadLine();
-            }
-            return foo;
-        }
-
-        /// <summary>
-        /// AcademiaIsNull check if academia the is null; if so then it display an error
-        /// message and return true value.
-        /// </summary>
-        public static bool AcademiaIsNull(Academia academia, string name)
-        {
-            var foo = academia is null;
-            if (foo)
-            {
-                Console.WriteLine("\n=============================\n" +
-                                  "ID {0} not exist!",
-                                  name);
-                Console.ReadLine();
-            }
-            return foo;
-        }
     }
 }
